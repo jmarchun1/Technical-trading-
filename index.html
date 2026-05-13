@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Trading Trainer</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #0e1116; color: #e8ecf1; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 24px; }
+    .card { background: #171c24; border: 1px solid #2a3340; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    button { background: #2e7df6; color: white; border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer; }
+    button.secondary { background: #2d3644; }
+    input[type="range"] { width: 220px; }
+    .pill { display:inline-block; padding:4px 8px; border-radius:999px; background:#253042; margin-right:6px; }
+    .muted { color: #a6b2c2; }
+    .score { font-size: 1.25rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Technical Trading Trainer (Incremental Learning)</h1>
+    <p class="muted">Prototype: focus on progressive indicator mastery (S/R → trend/channels → MA/ATR/RSI/MACD → VWAP/Volume → Bollinger/Fib/Pivots → Ichimoku/Stoch+ADX).</p>
+
+    <div class="card">
+      <h2>Session Progress</h2>
+      <div id="progress"></div>
+      <p id="sessionSummary" class="muted"></p>
+      <div class="row">
+        <button id="startBtn">Start / Next Lesson</button>
+        <button id="resetBtn" class="secondary">Reset Session</button>
+      </div>
+    </div>
+
+    <div class="card" id="lessonCard" style="display:none;">
+      <h2 id="lessonTitle"></h2>
+      <p id="lessonDesc" class="muted"></p>
+      <p><strong>Prompt:</strong> <span id="lessonPrompt"></span></p>
+      <label>How confident are you? <input id="confidence" type="range" min="1" max="5" value="3" /></label>
+      <div class="row" style="margin-top:12px;">
+        <button id="submitBtn">Submit Attempt</button>
+      </div>
+    </div>
+
+    <div class="card" id="feedbackCard" style="display:none;">
+      <h2>Feedback</h2>
+      <p id="feedbackText"></p>
+      <p class="score" id="scoreText"></p>
+      <p id="revealText" class="muted"></p>
+    </div>
+  </div>
+
+  <script src="session.js"></script>
+</body>
+</html>
